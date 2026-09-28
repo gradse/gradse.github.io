@@ -153,22 +153,42 @@ h3 { font-size: 1.05rem; font-weight: 600; margin: 0; }
 
 /* Lightbox */
 .lightbox {
-  border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh;
-  width: 100vw; height: 100vh; display: none; place-items: center;
+  border: 0; padding: 0; background: rgba(10, 12, 16, .94); max-width: 100vw; max-height: 100vh;
+  width: 100vw; height: 100vh; height: 100dvh; margin: 0; display: none; place-items: center;
 }
 .lightbox[open] { display: grid; }
 .lightbox::backdrop { background: rgba(10, 12, 16, .85); }
 .lightbox figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.lightbox img { max-height: 82vh; max-width: min(90vw, 1100px); border-radius: 12px; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
-.lightbox figcaption { color: #e6e8eb; font-size: .9rem; text-align: center; padding: 0 16px; }
-.lb-btn {
-  position: fixed; background: rgba(255,255,255,.12); color: #fff; border: 0; cursor: pointer;
-  width: 44px; height: 44px; border-radius: 50%; font-size: 1.6rem; line-height: 1;
+.lightbox img {
+  max-height: 80vh; max-width: min(90vw, 1100px); border-radius: 12px; background: #fff;
+  box-shadow: 0 10px 40px rgba(0,0,0,.5); cursor: pointer; user-select: none; -webkit-user-select: none;
+  touch-action: pan-y;
 }
-.lb-btn:hover { background: rgba(255,255,255,.25); }
+.lightbox figcaption { color: #e6e8eb; font-size: .9rem; text-align: center; padding: 0 16px; max-width: 760px; }
+.lb-dots { display: flex; align-items: center; gap: 6px; min-height: 18px; }
+.lb-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.35); }
+.lb-dots i.on { background: #fff; }
+.lb-count { color: #cbd2d9; font-size: .78rem; margin-right: 6px; font-variant-numeric: tabular-nums; }
+.lb-btn {
+  position: fixed; background: rgba(255,255,255,.14); color: #fff; border: 0; cursor: pointer;
+  width: 44px; height: 44px; border-radius: 50%; font-size: 1.6rem; line-height: 1; z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+}
+.lb-btn:hover { background: rgba(255,255,255,.28); }
 .lb-close { top: 16px; right: 16px; font-size: 1.1rem; }
 .lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
 .lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
+.lightbox.single .lb-prev, .lightbox.single .lb-next { display: none; }
+@media (max-width: 720px) {
+  .lightbox figure { gap: 10px; padding-bottom: 76px; }
+  .lightbox img { max-width: 94vw; max-height: 68vh; border-radius: 10px; }
+  .lightbox figcaption { font-size: .82rem; }
+  /* Big thumb-reachable controls in a bottom bar instead of over the image edges. */
+  .lb-prev, .lb-next { top: auto; bottom: max(18px, env(safe-area-inset-bottom)); transform: none; width: 56px; height: 56px; font-size: 2rem; background: rgba(255,255,255,.18); }
+  .lb-prev { left: calc(50% - 72px); }
+  .lb-next { right: calc(50% - 72px); }
+  .lb-close { top: max(12px, env(safe-area-inset-top)); right: 12px; }
+}
 
 /* Feature catalog dialog */
 .features {

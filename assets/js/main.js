@@ -168,21 +168,30 @@
   });
   renderProjects();
 
-  // Screenshot gallery (lightbox)
+  // Screenshot gallery (lightbox): arrows, keyboard, swipe, and tap-left/right on the image
   const lb = $("lightbox");
+  const lbImg = $("lb-img");
   let lbItems = [], lbIndex = 0;
+  const preload = (i) => { const it = lbItems[(i + lbItems.length) % lbItems.length]; if (it) new Image().src = it.src; };
   const showSlide = (i) => {
     lbIndex = (i + lbItems.length) % lbItems.length;
     const it = lbItems[lbIndex];
-    $("lb-img").src = it.src;
-    $("lb-img").alt = it.caption || "";
-    $("lb-caption").textContent = `${it.caption || ""}  (${lbIndex + 1}/${lbItems.length})`;
+    lbImg.src = it.src;
+    lbImg.alt = it.caption || "";
+    $("lb-caption").textContent = it.caption || "";
+    $("lb-dots").innerHTML = lbItems.length > 1
+      ? `<span class="lb-count">${lbIndex + 1} / ${lbItems.length}</span>` +
+        lbItems.map((_, k) => `<i class="${k === lbIndex ? "on" : ""}"></i>`).join("")
+      : "";
+    preload(lbIndex + 1);
+    preload(lbIndex - 1);
   };
   document.addEventListener("click", (e) => {
     const t = e.target.closest("[data-gallery]");
     if (!t) return;
     lbItems = galleries[Number(t.dataset.gallery)] || [];
     if (!lbItems.length) return;
+    lb.classList.toggle("single", lbItems.length < 2);
     showSlide(0);
     lb.showModal();
   });
@@ -194,6 +203,30 @@
     if (e.key === "ArrowLeft") showSlide(lbIndex - 1);
     if (e.key === "ArrowRight") showSlide(lbIndex + 1);
   });
+  // Swipe left/right anywhere in the viewer.
+  let touchX = null, touchY = null, swiped = false;
+  lb.addEventListener("touchstart", (e) => {
+    const t = e.touches[0]; touchX = t.clientX; touchY = t.clientY; swiped = false;
+  }, { passive: true });
+  lb.addEventListener("touchend", (e) => {
+    if (touchX === null || lbItems.length < 2) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchX, dy = t.clientY - touchY;
+    touchX = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      swiped = true;
+      setTimeout(() => { swiped = false; }, 400);
+      showSlide(lbIndex + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+  // Tap the left or right half of the image.
+  lbImg.addEventListener("click", (e) => {
+    if (swiped) { swiped = false; return; }
+    if (lbItems.length < 2) return;
+    const r = lbImg.getBoundingClientRect();
+    showSlide(lbIndex + (e.clientX < r.left + r.width / 2 ? -1 : 1));
+  });
+
   // Feature catalog dialog (tabs · collapsible groups · search)
   const ft = $("features");
   let ftSet = null, ftTab = 0;
