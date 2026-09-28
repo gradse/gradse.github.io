@@ -96,6 +96,7 @@ window.SITE = {
       description: "Developing interpretable machine-learning representations of resting-state EEG to distinguish Alzheimer's disease and frontotemporal dementia from healthy controls, and linking the learned features to clinically meaningful frequency bands and scalp regions.",
       tags: ["Machine Learning", "Biomedical"],
       image: "assets/img/projects/eeg/cover-tsne.jpg",
+      note: "Ongoing research · details and results withheld until publication",
       links: {},
     },
     {
