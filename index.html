@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yufei Wang</title>
+  <meta name="description" content="Personal website of Yufei Wang — research, projects, and CV." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231f3a5f'/><text x='16' y='21' font-family='Georgia' font-size='15' fill='white' text-anchor='middle'>YW</text></svg>" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="container nav">
+      <a href="#top" class="brand" id="brand"></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications-section">Publications</a>
+        <a href="cv.html" id="nav-cv">CV</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">◐</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" id="top">
+    <section class="hero" id="about">
+      <div class="photo-wrap">
+        <img id="photo" alt="" />
+        <div id="photo-fallback" class="photo-fallback" hidden></div>
+      </div>
+      <div class="hero-text">
+        <h1 id="name"></h1>
+        <p class="subtitle" id="subtitle"></p>
+        <p class="seeking" id="seeking"></p>
+        <div id="bio" class="bio"></div>
+        <ul id="interests" class="chips"></ul>
+        <div id="links" class="links"></div>
+      </div>
+    </section>
+
+    <section id="news-section" class="section">
+      <h2>News</h2>
+      <ul id="news" class="news"></ul>
+    </section>
+
+    <section id="research" class="section">
+      <div class="section-head">
+        <h2>Research</h2>
+        <div class="view-toggle" role="group" aria-label="Layout">
+          <button data-view="card" class="active" aria-label="Card view" title="Card view">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg>
+          </button>
+          <button data-view="list" aria-label="List view" title="List view">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2" width="13" height="3" rx="1"/><rect x="1.5" y="6.5" width="13" height="3" rx="1"/><rect x="1.5" y="11" width="13" height="3" rx="1"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="research-grid" class="projects card-view"></div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+      </div>
+      <div id="project-grid" class="projects card-view"></div>
+    </section>
+
+    <section id="publications-section" class="section">
+      <h2>Publications &amp; Presentations</h2>
+      <ol id="publications" class="pubs"></ol>
+    </section>
+
+    <section id="experience" class="section two-col">
+      <div>
+        <h2>Education</h2>
+        <ul id="education" class="timeline"></ul>
+      </div>
+      <div>
+        <h2>Experience</h2>
+        <ul id="experience-list" class="timeline"></ul>
+      </div>
+    </section>
+
+    <section id="awards-section" class="section">
+      <h2>Honors &amp; Awards</h2>
+      <ul id="awards" class="news"></ul>
+    </section>
+    <section id="skills-section" class="section">
+      <h2>Skills</h2>
+      <ul id="skills" class="news skills"></ul>
+    </section>
+  </main>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Screenshots">
+    <button id="lb-close" class="lb-btn lb-close" type="button" aria-label="Close">✕</button>
+    <button id="lb-prev" class="lb-btn lb-prev" type="button" aria-label="Previous">‹</button>
+    <figure>
+      <img id="lb-img" alt="" />
+      <figcaption id="lb-caption"></figcaption>
+    </figure>
+    <button id="lb-next" class="lb-btn lb-next" type="button" aria-label="Next">›</button>
+  </dialog>
+
+  <dialog id="features" class="features" aria-labelledby="ft-title">
+    <div class="ft-head">
+      <div>
+        <h2 id="ft-title"></h2>
+        <p id="ft-subtitle" class="ft-subtitle"></p>
+      </div>
+      <button id="ft-close" class="icon-btn" type="button" aria-label="Close">✕</button>
+    </div>
+    <div id="ft-tabs" class="ft-tabs" role="tablist"></div>
+    <div class="ft-toolbar">
+      <input id="ft-search" type="search" placeholder="Search this tab…" aria-label="Search features" />
+      <button id="ft-toggle" class="btn" type="button">Collapse all</button>
+    </div>
+    <div id="ft-body" class="ft-body"></div>
+  </dialog>
+
+  <footer class="container footer">
+    <span id="footer-text"></span>
+  </footer>
+
+  <script src="data-features.js"></script>
+  <script src="data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
