@@ -79,14 +79,21 @@
       .map(([k, v]) => `<a class="btn" href="${esc(v)}" target="_blank" rel="noopener">${esc(LINK_LABELS[k] || k[0].toUpperCase() + k.slice(1))}</a>`)
       .join("");
 
-  section("publications", S.publications, (p) => `
+  // Publications, grouped by `type` (e.g. "Journal Articles", "Conference Presentations") when types are given.
+  const pubItem = (p) => `
     <li>
       <div class="ptitle">${firstLink(p.links) ? `<a href="${esc(firstLink(p.links))}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</div>
       <div class="authors">${bold(p.authors)}</div>
       <div class="venue">${esc(p.venue)}</div>
       ${p.role ? `<div class="role"><span>Role</span> ${esc(p.role)}</div>` : ""}
       <div class="links">${linkBtns(extraLinks(p.links))}</div>
-    </li>`);
+    </li>`;
+  const pubs = S.publications || [];
+  $("publications-section").hidden = !pubs.length;
+  const pubTypes = [...new Set(pubs.map((p) => p.type || ""))];
+  $("publications").innerHTML = pubTypes.map((t) => `
+    ${t ? `<h3 class="pub-type">${esc(t)}</h3>` : ""}
+    <ol class="pubs">${pubs.filter((p) => (p.type || "") === t).map(pubItem).join("")}</ol>`).join("");
 
   const timeline = (items, a, b) =>
     (items || []).map((e) => `

@@ -12,8 +12,9 @@ window.SITE = {
   seeking: "", // optional one-line banner, e.g. "Applying to Ph.D. programs for Fall 2027"
 
   bio: [
-    "I am a Master of Science in Software Engineering student at **Carnegie Mellon University**. I received my B.S. in Computer and Information Science & Statistics from **The Ohio State University**.",
-    "My research interests are in biomedical informatics and computational biology. I focus on building and applying statistical and machine learning methods that combine clinical, molecular, imaging, and biomarker data for disease characterization, outcome prediction, and personalized medicine.",
+    "I am an M.S. student in Software Engineering at **Carnegie Mellon University**. I received my B.S. in Computer and Information Science and Statistics from **The Ohio State University**.",
+    "My research interests are in biomedical informatics and computational biology, particularly developing and applying statistical and machine learning methods that integrate clinical, molecular, imaging, and biomarker data for disease characterization, outcome prediction, and personalized medicine.",
+    "My current research focuses on interpretable machine learning for EEG-based dementia classification, with prior work in molecular generative modeling, cancer epigenomics, and clinical oncology.",
   ],
 
   interests: [
@@ -202,11 +203,12 @@ window.SITE = {
     },
   ],
 
-  // Use **Your Name** to bold yourself in the author list. `role` (optional) describes your contribution.
+  // Use **Your Name** to bold yourself in the author list. `role` (optional) describes your contribution; `type` groups entries under a subheading.
   // The first link goes on the title; any further links (code, slides …) become buttons.
   publications: [
     {
       authors: "Yan, F., Wu, A., **Wang, Y.**, et al.",
+      type: "Journal Articles",
       title: "Cancer-related microangiopathic hemolytic anemia (CR-MAHA) in a metastatic breast cancer patient with a germ-line ATM single nucleotide variant and an ESR1 fusion variant: insights from a case report on early diagnosis and improved outcomes",
       venue: "Frontiers in Oncology, 16, 2026",
       role: "Co-wrote the original draft; review and editing.",
@@ -214,6 +216,7 @@ window.SITE = {
     },
     {
       authors: "Husain, M., Sirineni, P., Hansotia, K., McMahon, A., **Wang, Y.**, Mo, X., Fetzer, E., Chen, J. L., Liebner, D. A., Tinoco, G.",
+      type: "Conference Presentations",
       title: "Predictive Value of Neutrophil-to-Lymphocyte Ratio in Immunotherapy Outcomes in Advanced Sarcoma",
       venue: "Connective Tissue Oncology Society (CTOS) Annual Meeting, 2024 · Poster P244",
       role: "Data analysis and clinical demographic tables summarizing patient characteristics (sex, age, disease stage, lines of therapy, histology).",

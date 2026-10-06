@@ -259,6 +259,8 @@ h3 { font-size: 1.05rem; font-weight: 600; margin: 0; }
 
 /* Publications */
 .pubs { padding-left: 20px; margin: 0; }
+.pub-type { font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin: 22px 0 10px; }
+.pub-type:first-child { margin-top: 0; }
 .pubs li { margin-bottom: 14px; }
 .pubs .ptitle { font-weight: 600; }
 .pubs .authors, .pubs .venue { color: var(--muted); font-size: .93rem; }
