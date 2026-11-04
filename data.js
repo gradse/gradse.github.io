@@ -14,7 +14,7 @@ window.SITE = {
   bio: [
     "I am an M.S. student in Software Engineering at **Carnegie Mellon University**. I received my B.S. in Computer and Information Science and Statistics from **The Ohio State University**.",
     "My research interests are in biomedical informatics and computational biology, particularly developing and applying statistical and machine learning methods that integrate clinical, molecular, imaging, and biomarker data for disease characterization, outcome prediction, and personalized medicine.",
-    "My current research focuses on interpretable machine learning for EEG-based dementia classification, with prior work in molecular generative modeling, cancer epigenomics, and clinical oncology.",
+    "My current research focuses on representation learning for 3D cell segmentation and interpretable machine learning for EEG-based dementia classification, with prior work in molecular generative modeling, cancer epigenomics, and clinical oncology.",
   ],
 
   interests: [
@@ -54,6 +54,12 @@ window.SITE = {
 
   experience: [
     {
+      role: "Graduate Student Researcher",
+      org: "Computational Biology Department, CMU · Prof. Min Xu",
+      years: "Oct 2026 – Present",
+      detail: "Representation learning for 3D cell segmentation.",
+    },
+    {
       role: "Graduate Research Assistant",
       org: "Integrated Innovation Institute, CMU · Prof. Catherine Fang",
       years: "Aug 2026 – Present",
@@ -90,14 +96,43 @@ window.SITE = {
   // `links`: `code` (GitHub repo) goes on the title; the rest become buttons: poster, results, paper, demo, slides ...
   research: [
     {
+      title: "Representation Learning for 3D Cell Segmentation",
+      badge: "3D Cell",
+      year: "2026 – Present",
+      context: "CMU · Prof. Min Xu",
+      description: "Exploring DINOv3-based self-supervised representations for 3D cell segmentation and reproducing baseline segmentation methods. So far: validating DINOv3 on its downstream vision tasks before moving to cell imaging data.",
+      tags: ["Computer Vision", "Biomedical Imaging"],
+      image: "assets/img/projects/cellseg/cover-features.jpg",
+      note: "Ongoing research · details and results withheld until publication",
+      // Natural-image validation runs of DINOv3 ViT-S/16, not cell data.
+      figures: [
+        { src: "assets/img/projects/cellseg/1-pca.jpg", caption: "DINOv3 validation on natural images: PCA of foreground patch features, shown as RGB" },
+        { src: "assets/img/projects/cellseg/2-dense-correspondence.jpg", caption: "DINOv3 validation: dense feature correspondence between two views of the same kind of object" },
+        { src: "assets/img/projects/cellseg/3-keypoint-matching.jpg", caption: "DINOv3 validation: keypoint matches across two different photos" },
+        { src: "assets/img/projects/cellseg/4-video-tracking.jpg", caption: "DINOv3 validation: segmentation tracked through video frames" },
+        { src: "assets/img/projects/cellseg/5-semantic-segmentation.jpg", caption: "DINOv3 validation: linear-probe semantic segmentation on ADE20K (ground truth vs. prediction)" },
+        { src: "assets/img/projects/cellseg/6-depth.jpg", caption: "DINOv3 validation: linear-probe depth on NYUv2 (ground truth vs. prediction)" },
+      ],
+      links: {},
+    },
+    {
       title: "Interpretable ML for EEG-Based Dementia Classification",
       badge: "EEG",
       year: "2026 – Present",
       context: "CMU · Prof. Catherine Fang",
       description: "Developing interpretable machine-learning representations of resting-state EEG to distinguish Alzheimer's disease and frontotemporal dementia from healthy controls, and linking the learned features to clinically meaningful frequency bands and scalp regions.",
-      tags: ["Machine Learning", "Biomedical"],
+      tags: ["Machine Learning", "Neuroinformatics"],
       image: "assets/img/projects/eeg/cover-tsne.jpg",
       note: "Ongoing research · details and results withheld until publication",
+      figures: [
+        { src: "assets/img/projects/eeg/view-1.jpg", caption: "Two-dimensional projection of model outputs (PCA)" },
+        { src: "assets/img/projects/eeg/view-2.jpg", caption: "Two-dimensional projection of model outputs (t-SNE)" },
+        { src: "assets/img/projects/eeg/view-3.jpg", caption: "Two-dimensional projection of model outputs (UMAP)" },
+        { src: "assets/img/projects/eeg/view-4.jpg", caption: "Two-dimensional projection of model outputs (PCA)" },
+        { src: "assets/img/projects/eeg/view-5.jpg", caption: "Two-dimensional projection of model outputs (t-SNE)" },
+        { src: "assets/img/projects/eeg/view-6.jpg", caption: "Two-dimensional projection of model outputs (UMAP)" },
+        { src: "assets/img/projects/eeg/view-7.jpg", caption: "Participant-level view, with identifiers and values removed" },
+      ],
       links: {},
     },
     {
@@ -106,7 +141,7 @@ window.SITE = {
       year: "2025",
       context: "OSU · Prof. Xia Ning",
       description: "Evaluation tools for a protein–ligand generative modeling pipeline, including steric clash detection, bond-length analysis, and PyMOL visualization. Includes PyTorch workflows for processing large batches of generated conformations and a study of flow-matching methods for molecular generation.",
-      tags: ["Machine Learning", "Biomedical"],
+      tags: ["Machine Learning", "Structural Bioinformatics"],
       image: "assets/img/projects/molgen/cover-pocket.jpg",
       figures: [
         { src: "assets/img/projects/molgen/1-pocket.jpg", caption: "Generated ligand in its target protein pocket (PyMOL render)" },
@@ -122,7 +157,7 @@ window.SITE = {
       year: "2024",
       context: "OSU · Prof. Xiaokui Mo · Best Poster Award",
       description: "R/Python workflows for clinical and DNA methylation data covering preprocessing, HPV-based patient stratification, and statistical testing. Estimated epigenetic age with Bioconductor and compared HPV-related differences in epigenetic aging. Won the **Best Poster Award** among 22 students.",
-      tags: ["Statistics", "Biomedical"],
+      tags: ["Statistics", "Cancer Epigenomics"],
       image: "assets/img/projects/hnscc/cover-volcano.jpg",
       // Figures open in a click-to-enlarge gallery.
       figures: [
