@@ -197,7 +197,7 @@ window.SITE = {
       badge: "MiniBank",
       year: "2026 – Present",
       context: "Dataset version control & analysis platform",
-      description: "Full-stack analytics platform (React, TypeScript, FastAPI, SQLAlchemy, PostgreSQL) with immutable dataset versioning for reproducible analysis. Offers 100+ no-code statistical, ML, and text-mining tools. Runs on AWS with Docker, Terraform, and JWT authentication.",
+      description: "Full-stack analytics platform (React, TypeScript, FastAPI, SQLAlchemy, PostgreSQL) with immutable dataset versioning for reproducible analysis. Handles CSV, Excel, and Parquet files up to 500 MB and offers 100+ no-code statistical, machine-learning, text-mining, and biomedical tools. Runs on AWS with Docker, Terraform, and JWT authentication.",
       tags: ["Full-stack", "Statistics", "Cloud"],
       image: "assets/img/projects/minibank/cover-collage.jpg",
       figuresLabel: "screens",
@@ -262,6 +262,7 @@ window.SITE = {
   awards: [
     { year: "2026", text: "5th Place — NewsBreak x CMU-SV ECE Hackathon" },
     { year: "2025", text: "*Summa cum laude*, The Ohio State University" },
+    { year: "2021–2025", text: "Dean's List, The Ohio State University (all 8 semesters)" },
     { year: "2024", text: "Best Poster Award — Biomedical Informatics Summer Internship, The Ohio State University" },
   ],
 

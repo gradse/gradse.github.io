@@ -11,7 +11,7 @@ window.FEATURES = {
   minibank: {
     button: "Features",
     title: "STAT-MiniBank — what's inside",
-    subtitle: "Diagnostics, data operations, version control, and 100+ no-code analysis tools.",
+    subtitle: "CSV, Excel, and Parquet datasets up to 500 MB, with diagnostics, data operations, version control, and 100+ no-code analysis tools — now including biomedical and signal analysis.",
     sections: [
       {
         id: "diagnostics",
@@ -75,6 +75,17 @@ window.FEATURES = {
         intro:
           "Edit, clean, and reshape data in a spreadsheet-style grid without code. Click row numbers or headers to select (Shift+click for several). Edits stay a draft until you save; saving creates a new version, so nothing is lost. Destructive operations show what will change before they apply.",
         groups: [
+          {
+            name: "Upload & Large Datasets",
+            items: [
+              ["CSV, Excel & Parquet", "Upload CSV, XLSX, or flat Parquet tables; nested list, map, and struct columns are rejected with a clear message."],
+              ["Typed saves", "Excel and Parquet versions keep native numbers, dates, and true/false values; Parquet also keeps true nulls."],
+              ["Large Dataset Mode", "Files over 50 MB (up to 500 MB) open after confirmation as a read-only preview, while supported analyses still read the full table."],
+              ["Original preserved", "The uploaded file is never replaced; large CSV and Excel files get a separate compressed Parquet copy for fast reads."],
+              ["Editable sample", "Create a normal, editable dataset from 100 to 100,000 sampled rows of a large file."],
+              ["Background processing", "Large uploads are streamed to storage and processed after upload, with status, cancel, and retry."],
+            ],
+          },
           {
             name: "Manual Edit",
             items: [
@@ -152,7 +163,7 @@ window.FEATURES = {
         id: "analysis",
         label: "Analysis Tools",
         intro:
-          "No-code analysis across five areas. Each tool opens a guided panel, checks which columns are eligible, and returns results with plain-language conclusions, warnings, and downloadable plots.",
+          "No-code analysis across six areas. Each tool opens a guided panel, checks which columns are eligible, and returns results with plain-language conclusions, warnings, and downloadable plots.",
         groups: [
           {
             name: "Data Exploration",
@@ -260,7 +271,7 @@ window.FEATURES = {
               ["Gaussian Mixture Model", "Soft, probabilistic clusters."],
               ["DBSCAN", "Density-based clusters that also flag noise."],
               "Dimensionality Reduction",
-              ["Principal Component Analysis", "Summarize many features in a few components."],
+              ["Principal Component Analysis", "Summarize many features in a few components, with an interactive 2D/3D component explorer."],
               "Feature Selection",
               ["Mutual Information", "Rank features by shared information with the target."],
               ["Select From Model", "Keep features a fitted model finds important."],
@@ -302,6 +313,41 @@ window.FEATURES = {
               ["TF-IDF Vectorization", "Sparse TF-IDF matrix."],
               ["Word / Document Embeddings", "Dense, low-dimensional document vectors and their nearest neighbors."],
               ["Text Dimension Reduction", "Reduce text vectors to a few numeric components."],
+            ],
+          },
+          {
+            name: "Biomedical & Signal Analysis",
+            intro: "Clinical and biomedical workflows: EEG band power, survival, diagnostic accuracy, epidemiology, and repeated measures. Large Parquet datasets are analyzed in full.",
+            items: [
+              "EEG Analysis",
+              ["EEG Dataset Summary", "Validate a band-power table: participants, bands, channels, time coverage, and duplicate rows."],
+              ["Band-Power Timeline", "Plot selected band-channel features over time for one participant."],
+              ["Band × Channel Heatmap", "Mean or median band power arranged as a band-by-channel matrix."],
+              ["Scalp Topography", "Interpolate one band across standard 10–20 electrodes within a head outline."],
+              ["Group & Clinical Comparison", "Participant-level Mann–Whitney, Kruskal–Wallis, or Spearman tests with Holm or Benjamini–Hochberg adjustment."],
+              ["Regional Band Summary", "Aggregate channels into frontal, central, temporal, parietal, and occipital regions."],
+              ["Hemispheric Asymmetry", "Right-versus-left power differences across eight standard channel pairs."],
+              ["Band-Ratio Timeline", "One band relative to another over time, for one participant and channel."],
+              ["Participant Feature Map", "Standardized two-component PCA of participant-level features, colored by group."],
+              ["Channel-Averaged Band Traces", "Delta, theta, alpha, beta, and gamma traces averaged across selected channels."],
+              "Survival Analysis",
+              ["Survival Dataset Summary", "Check duration and event coding: events, censoring, and median follow-up."],
+              ["Kaplan–Meier Curves", "Right-censored survival curves with numbers at risk and median survival."],
+              ["Log-Rank Test", "Compare survival curves across two or more groups."],
+              ["Cox Proportional Hazards", "Hazard ratios with confidence intervals, a forest plot, and a proportional-hazards check."],
+              "Diagnostic Accuracy",
+              ["Binary Diagnostic Accuracy", "Sensitivity, specificity, predictive values, and likelihood ratios with Wilson intervals."],
+              ["ROC & Threshold Analysis", "ROC curve, AUC with a bootstrap interval, and the best sensitivity–specificity threshold."],
+              ["Probability Calibration", "Brier score, calibration slope and intercept, expected calibration error, and a calibration plot."],
+              "Clinical Epidemiology",
+              ["Binary Risk Measures", "Risk difference, risk ratio, odds ratio, Fisher exact test, and number needed to treat or harm."],
+              ["Incidence Rate Comparison", "Event rates per person-time and their ratio between two groups."],
+              ["Stratified Odds Ratio", "Mantel–Haenszel common odds ratio with Cochran–Mantel–Haenszel and homogeneity tests."],
+              "Longitudinal Analysis",
+              ["Subject Trajectories", "Repeated-measure trajectories per subject, optionally grouped."],
+              ["Gaussian GEE", "Population-average model for a numeric outcome with robust standard errors."],
+              ["Binary GEE", "Population-average logistic model for a repeated binary outcome."],
+              ["Count GEE", "Population-average Poisson model for repeated counts."],
             ],
           },
         ],
